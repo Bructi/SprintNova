@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎓 Student Council Web Platform — Homepage (XIE)</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/framework_index.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+            <img src="assets/logo.png" alt="XIE Council Logo"> 
+        </a>
+        <nav>
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="medal_tally.html">Medal Tally</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="draft.html">Upload Draft</a></li>
+          </ul>
+        </nav>
+        <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+      </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container text-center">
+                <h1 class="hero-title">XIE Student Council Platform</h1>
+                <p class="hero-subtitle">Connecting Fests, Winners & Achievements</p>
+                <a href="events.html" class="btn btn-accent">Explore Events</a>
+            </div>
+        </section>
+
+        <div class="notice-ticker-container">
+            <div class="ticker-label">
+                <i class="fas fa-bullhorn"></i> Announcements
+            </div>
+            <div class="ticker-scroll">
+                <div class="notice-content">
+                    <span><strong>Latest:</strong> Registrations for CodeClash are closing soon!</span>
+                    <span><strong>Reminder:</strong> Holiday declared on Monday, Oct 20th.</span>
+                    <span><strong>Latest:</strong> Registrations for CodeClash are closing soon!</span>
+                    <span><strong>Reminder:</strong> Holiday declared on Monday, Oct 20th.</span>
+                </div>
+            </div>
+        </div>
+
+        <section id="stats-counter" class="stats-section">
+            <div class="container grid grid-4">
+                <div class="stat-item text-center">
+                    <h2 data-count="3">0</h2>
+                    <p>Fests Hosted</p>
+                </div>
+                <div class="stat-item text-center">
+                    <h2 data-count="50">0+</h2>
+                    <p>Events Managed</p>
+                </div>
+                <div class="stat-item text-center">
+                    <h2 data-count="12">0</h2>
+                    <p>Departments Competing</p>
+                </div>
+                <div class="stat-item text-center">
+                    <h2 data-count="150">0+</h2>
+                    <p>Winners Awarded</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="upcoming-events">
+            <div class="container">
+                <h2 class="text-center">Upcoming Events</h2>
+                <div id="upcoming-events-container" class="horizontal-scroll-wrapper">
+                    <p>Loading events...</p> 
+                </div>
+            </div>
+        </section>
+
+        <section class="countdown-section">
+            <div class="container text-center">
+                <h2>CodeClash Begins In...</h2>
+                <div id="countdown-timer" class="countdown-grid">
+                    <div class="countdown-item">
+                        <h2 id="countdown-days">00</h2>
+                        <p>Days</p>
+                    </div>
+                    <div class="countdown-item">
+                        <h2 id="countdown-hours">00</h2>
+                        <p>Hours</p>
+                    </div>
+                    <div class="countdown-item">
+                        <h2 id="countdown-minutes">00</h2>
+                        <p>Minutes</p>
+                    </div>
+                    <div class="countdown-item">
+                        <h2 id="countdown-seconds">00</h2>
+                        <p>Seconds</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="leaderboard-section" style="background-color: var(--Secondary);">
+            <div class="container">
+                <h2 class="text-center">🏆 Live Standings 🏆</h2>
+                
+                <div class="podium-container">
+                    <div class="podium-card rank-2">
+                        <div class="podium-rank">2<small>nd</small></div>
+                        <i class="fas fa-medal silver"></i>
+                        <h3 id="podium-2-class">TE IT</h3>
+                        <p><span id="podium-2-medals">6</span> Medals</p>
+                    </div>
+                    <div class="podium-card rank-1">
+                        <div class="podium-rank">1<small>st</small></div>
+                        <i class="fas fa-medal gold"></i>
+                        <h3 id="podium-1-class">SE COMP A</h3>
+                        <p><span id="podium-1-medals">7</span> Medals</p>
+                    </div>
+                    <div class="podium-card rank-3">
+                        <div class="podium-rank">3<small>rd</small></div>
+                        <i class="fas fa-medal bronze"></i>
+                        <h3 id="podium-3-class">BE MECH</h3>
+                        <p><span id="podium-3-medals">6</span> Medals</p>
+                    </div>
+                </div>
+                
+                <div class="tabs text-center">
+                    <button class="btn tab-btn active" data-target="#class-table-content">Class Standings</button>
+                    <button class="btn tab-btn" data-target="#dept-table-content">Department Standings</button>
+                </div>
+                
+                <div class="table-content-wrapper">
+                    <div id="class-table-content" class="table-content active">
+                        <div class="table-container shadow-sm">
+                            <table id="leaderboard-table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Class</th>
+                                        <th><i class="fas fa-medal gold"></i></th>
+                                        <th><i class="fas fa-medal silver"></i></th>
+                                        <th><i class="fas fa-medal bronze"></i></th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="class-leaderboard-body">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div id="dept-table-content" class="table-content hidden">
+                        <div class="table-container shadow-sm">
+                            <table id="dept-leaderboard-table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Department</th>
+                                        <th><i class="fas fa-medal gold"></i></th>
+                                        <th><i class="fas fa-medal silver"></i></th>
+                                        <th><i class="fas fa-medal bronze"></i></th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dept-leaderboard-body">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                 <div class="text-center" style="margin-top: 2rem;">
+                    <a href="medal_tally.html" class="btn btn-accent">View Full Medal Tally</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonial-section">
+            <div class="container">
+                <h2 class="text-center">Winner's Spotlight</h2>
+                <div class="testimonial-slider">
+                    <div class="testimonial-card card active">
+                        <blockquote>
+                            <p>"Winning CodeClash was an amazing and unexpected experience! The competition was tough but fair. Highly recommend everyone to participate."</p>
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <strong>- Rohan V, TE Comps</strong>
+                            <p>Winner, CodeClash (Transmission)</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card card">
+                        <blockquote>
+                            <p>"Spandan is the heart of our college. Being on stage for Melody Night was a dream come true. The crowd and energy were unbelievable!"</p>
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <strong>- Ananya S, SE IT</strong>
+                            <p>Winner, Melody Night (Spandan)</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card card">
+                        <blockquote>
+                            <p>"The XIE Marathon was grueling but so rewarding. A huge thank you to the Sports Council for organizing such a professional event."</p>
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <strong>- David M, BE Mech</strong>
+                            <p>Winner, XIE Marathon (Sparx)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="council-snippet">
+            <div class="container">
+                <h2 class="text-center">Meet the Council</h2>
+                <div class="grid grid-4">
+                    <div class="card council-card text-center">
+                        <div class="council-photo">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3>Priya Sharma</h3>
+                        <p>General Secretary</p>
+                    </div>
+                    <div class="card council-card text-center">
+                        <div class="council-photo">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3>Rahul Verma</h3>
+                        <p>Technical Secretary</p>
+                    </div>
+                    <div class="card council-card text-center">
+                        <div class="council-photo">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3>Aisha Khan</h3>
+                        <p>Cultural Secretary</p>
+                    </div>
+                    <div class="card council-card text-center">
+                        <div class="council-photo">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3>Rohan Patel</h3>
+                        <p>Sports Secretary</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="gallery-preview section-secondary">
+            <div class="container">
+                <h2 class="text-center">Latest Moments</h2>
+                <div class="scrolling-wrapper">
+                    <div class="gallery-track">
+                        <a href="gallery.html" class="gallery-item"><img src="https://via.placeholder.com/300x300/004AAD/FFFFFF?text=Spandan+Dance" alt="Gallery Image 1"></a>
+                        <a href="gallery.html" class="gallery-item"><img src="https://via.placeholder.com/300x300/E74C3C/FFFFFF?text=Sparx+Cricket" alt="Gallery Image 2"></a>
+                        <a href="gallery.html" class="gallery-item"><img src="https://via.placeholder.com/300x300/FFC107/1E1E1E?text=Winner+Podium" alt="Gallery Image 3"></a>
+                        <a href="gallery.html" class="gallery-item"><img src="https://via.placeholder.com/300x300/2ECC71/FFFFFF?text=CodeClash+Winners" alt="Gallery Image 4"></a>
+                        <a href="gallery.html" class="gallery-item"><img src="https://via.placeholder.com/300x300/9B59B6/FFFFFF?text=Debate+Finals" alt="Gallery Image 5"></a>
+                        <a href="gallery.html" class="gallery-item"><img src="https://via.placeholder.com/300x300/34495E/FFFFFF?text=RoboWars" alt="Gallery Image 6"></a>
+                        <a href="gallery.html" class="gallery-item"><img src="https://via.placeholder.com/300x300/E67E22/FFFFFF?text=Guest+Lecture" alt="Gallery Image 7"></a>
+                        <a href="gallery.html" class="gallery-item"><img src="https://via.placeholder.com/300x300/1ABC9C/FFFFFF?text=Flash+Mob" alt="Gallery Image 8"></a>
+                        
+                        <a href="gallery.html" class="gallery-item"><img src="https://via.placeholder.com/300x300/004AAD/FFFFFF?text=Spandan+Dance" alt="Gallery Image 1"></a>
+                        <a href="gallery.html" class="gallery-item"><img src="https://via.placeholder.com/300x300/E74C3C/FFFFFF?text=Sparx+Cricket" alt="Gallery Image 2"></a>
+                        <a href="gallery.html" class="gallery-item"><img src="https://via.placeholder.com/300x300/FFC107/1E1E1E?text=Winner+Podium" alt="Gallery Image 3"></a>
+                        <a href="gallery.html" class="gallery-item"><img src="https://via.placeholder.com/300x300/2ECC71/FFFFFF?text=CodeClash+Winners" alt="Gallery Image 4"></a>
+                        <a href="gallery.html" class="gallery-item"><img src="https://via.placeholder.com/300x300/9B59B6/FFFFFF?text=Debate+Finals" alt="Gallery Image 5"></a>
+                        <a href="gallery.html" class="gallery-item"><img src="https://via.placeholder.com/300x300/34495E/FFFFFF?text=RoboWars" alt="Gallery Image 6"></a>
+                        <a href="gallery.html" class="gallery-item"><img src="https://via.placeholder.com/300x300/E67E22/FFFFFF?text=Guest+Lecture" alt="Gallery Image 7"></a>
+                        <a href="gallery.html" class="gallery-item"><img src="https://via.placeholder.com/300x300/1ABC9C/FFFFFF?text=Flash+Mob" alt="Gallery Image 8"></a>
+                    </div>
+                </div>
+                <div class="text-center" style="margin-top: 2rem;">
+                    <a href="gallery.html" class="btn">View Full Gallery</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="text-center">Frequently Asked Questions</h2>
+                <div class="faq-accordion">
+                    <div class="faq-item card">
+                        <button class="faq-question">
+                            How do I register for an event?
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>You can register for any open event by clicking the "Register Now" button on the event card. This will open the registration link (usually a Google Form) in a new tab.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item card">
+                        <button class="faq-question">
+                            How is the medal tally calculated?
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>The medal tally is calculated automatically. Each event winner is assigned a Gold, Silver, or Bronze medal. These medals are then aggregated to show totals for each class (e.g., SE COMP A) and each department (e.g., Computer Engg.).</p>
+                        </div>
+                    </div>
+                    <div class="faq-item card">
+                        <button class="faq-question">
+                            Who can participate in the fests?
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>All fests and events are open to all bona fide students of Xavier Institute of Engineering. Some specific events may have prerequisites (e.g., "open to SE and TE only"), which will be mentioned in the event details.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    <footer class="footer">
+      <p>© 2025 Xavier Institute of Engineering — Student Council Platform</p>
+    </footer>
+
+    <script src="js/framework_index.js" defer></script>
+    
+    <script src="js/main.js" defer></script>
+</body>
+</html>

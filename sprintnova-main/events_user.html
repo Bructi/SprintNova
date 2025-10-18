@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events & Winners — XIE Council Platform</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/events_user.css">
+</head>
+<body>
+
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">XIE Council</a>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="events_user.html" class="active">Events</a></li>
+            <li><a href="medal_tally.html">Medal Tally</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="draft.html">Upload Draft</a></li>
+          </ul>
+        </nav>
+        <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+      </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Events & Winners</h1>
+                <p>Browse through all events and their achievements.</p>
+            </div>
+        </section>
+
+        <section class="filter-bar">
+            <div class="container">
+                <div class="filter-group">
+                    <select id="fest-filter" aria-label="Filter by Fest">
+                        <option value="All">All Fests</option>
+                        <option value="Spandan">Spandan</option>
+                        <option value="Transmission">Transmission</option>
+                        <option value="Sparx">Sparx</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <select id="medal-filter" aria-label="Filter by Medal">
+                        <option value="All">All Medals</option>
+                        <option value="Gold">Gold</option>
+                        <option value="Silver">Silver</option>
+                        <option value="Bronze">Bronze</option>
+                    </select>
+                </div>
+                <div class="filter-group search-group">
+                    <input type="search" id="search-input" placeholder="Search event or winner...">
+                </div>
+                <button id="clear-filters-btn" class="btn btn-danger">Clear Filters</button>
+            </div>
+        </section>
+
+        <section class="event-list-section">
+            <div class="container">
+                <div id="event-grid">
+                    </div>
+                <div id="empty-state" class="empty-state-message">
+                    <h3>😕 No Events Found</h3>
+                    <p>No events match your current filters. Try adjusting your search!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+      <p>© 2025 Xavier Institute of Engineering — Student Council Platform</p>
+    </footer>
+
+    <script src="js/framework_event.js" defer></script>
+    <script src="js/events_user.js"></script>
+</body>
+</html>

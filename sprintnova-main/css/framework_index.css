@@ -1,0 +1,209 @@
+/* --- 1. COLOR PALETTE & GLOBAL VARS --- */
+:root {
+    /* (No changes here) */
+    --Primary: #004AAD;
+    --Primary-Dark: #003580;
+    --Secondary: #F2F2F2;
+    --Accent: #FFC107;
+    --Text-Primary: #1E1E1E;
+    --Text-Secondary: #5F5F5F;
+    --White: #FFFFFF;
+    --Success: #2ECC71;
+    --Error: #E74C3C;
+    --Max-Width: 1200px;
+    --Border-Radius: 10px;
+    --Shadow-Sm: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* --- GLOBAL RESET & DEFAULTS --- */
+/* (No changes here) */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; line-height: 1.5; background-color: var(--White); color: var(--Text-Primary); }
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: var(--Primary); }
+
+/* --- 2. TYPOGRAPHY --- */
+/* (No changes here) */
+h1, h2, h3 { font-weight: 700; line-height: 1.2; margin-bottom: 1rem; }
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.4rem; }
+p { font-size: 1rem; font-weight: 400; margin-bottom: 1rem; }
+
+/* --- 3. GLOBAL LAYOUT GRID --- */
+/* (No changes here) */
+.container { width: 90%; max-width: var(--Max-Width); margin: auto; }
+section { padding: 3rem 0; }
+.grid { display: grid; gap: 1.5rem; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+
+/* --- 4. NAVBAR (HEAVILY MODIFIED) --- */
+.navbar {
+    /* MODIFIED: Switched to position: fixed */
+    background: transparent;
+    color: var(--White);
+    position: fixed; /* This is the fix */
+    top: 0;
+    left: 0; /* Added */
+    width: 100%; /* Added */
+    z-index: 100;
+    box-shadow: none; 
+    transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* NEW: This class is added by JS on scroll */
+.navbar.scrolled {
+    background: var(--Primary);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--Max-Width);
+    margin: auto;
+    /* MODIFIED: Increased default padding */
+    padding: 1.5rem 2rem;
+    width: 100%;
+    /* NEW: Smooth transition for shrinking */
+    transition: padding 0.3s ease;
+}
+
+/* NEW: Shrink effect */
+.navbar.scrolled .nav-container {
+    padding: 0.75rem 2rem;
+}
+
+/* MODIFIED: Logo styling */
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--White);
+    display: flex;
+    align-items: center;
+}
+
+/* NEW: Styles for the logo image (Option A) */
+.logo img {
+    height: 45px; /* Default logo height */
+    width: auto;
+    transition: height 0.3s ease;
+}
+
+/* NEW: Shrink effect for logo */
+.navbar.scrolled .logo img {
+    height: 35px;
+}
+
+.nav-container nav ul {
+    display: flex;
+    gap: 0.5rem; /* Reduced gap, padding will handle spacing */
+    list-style: none;
+    align-items: center;
+}
+
+/* MODIFIED: Link design */
+.nav-container nav a {
+    color: var(--White);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem; /* NEW: Added padding for the "pill" */
+    border-radius: 8px; /* NEW: Rounded corners for the pill */
+    border-bottom: none; /* REMOVED: No more border */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* MODIFIED: New hover state */
+.nav-container nav a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--White);
+}
+
+/* MODIFIED: New active state */
+.nav-container nav a.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--Accent);
+    font-weight: 700;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--White);
+}
+
+/* --- 5. FOOTER (COMMON) --- */
+/* (No changes here) */
+.footer {
+    background: var(--Primary);
+    color: var(--White);
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+    margin-top: 3rem;
+}
+.footer p { margin: 0; }
+
+
+/* --- 6. BUTTON & CARD COMPONENTS --- */
+/* (No changes here) */
+.btn { display: inline-block; background: var(--Primary); color: var(--White); padding: 0.75rem 1.5rem; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 1rem; text-decoration: none; transition: 0.3s ease; }
+.btn:hover { background: var(--Primary-Dark); transform: scale(1.03); }
+.btn.btn-accent { background: var(--Accent); color: var(--Text-Primary); }
+.btn.btn-accent:hover { background: #e6ac00; }
+.card { background: var(--White); border-radius: var(--Border-Radius); box-shadow: var(--Shadow-Sm); padding: 1.5rem; transition: 0.3s ease; overflow: hidden; }
+.card:hover { transform: translateY(-5px); box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
+
+
+/* --- 8. UTILITY CLASSES --- */
+/* (No changes here) */
+.text-center { text-align: center; }
+.highlight { color: var(--Accent); }
+.shadow-sm { box-shadow: var(--Shadow-Sm); }
+.flex-between { display: flex; justify-content: space-between; align-items: center; }
+.hidden { display: none; }
+
+
+/* --- 7. RESPONSIVE DESIGN RULES --- */
+@media (max-width: 768px) {
+    /* (No changes here) */
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    .container { width: 95%; }
+
+    /* Mobile Nav */
+    .menu-toggle { display: block; }
+    .nav-container nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 67px; /* Adjust based on your SHRUNK navbar height */
+        left: 0;
+        width: 100%;
+        background: var(--Primary-Dark);
+        padding: 1rem 0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .nav-container nav ul.open { display: flex; }
+    .nav-container nav li { width: 100%; text-align: center; }
+    .nav-container nav a { padding: 1rem; display: block; width: 100%; border-bottom: none; }
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+
+    /* Fix: Ensure navbar is solid on mobile from the start */
+    .navbar, .navbar.scrolled {
+        background: var(--Primary);
+    }
+    .nav-container, .navbar.scrolled .nav-container {
+        padding: 0.75rem 2rem;
+    }
+    .logo img, .navbar.scrolled .logo img {
+        height: 35px;
+    }
+}

@@ -1,0 +1,29 @@
+:root {
+    --primary-heading-color: #004AAD; --primary-bg-color: #F8FAFF; --card-bg-color: #FFFFFF;
+    --border-color: #e0e0e0; --success-color: #27ae60;
+}
+body {
+    font-family: 'Poppins', sans-serif; background-color: var(--primary-bg-color); display: flex;
+    justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box;
+}
+.admin-container {
+    background-color: var(--card-bg-color); padding: 40px; border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); width: 100%; max-width: 500px;
+}
+header { text-align: center; margin-bottom: 30px; }
+header h1 { color: var(--primary-heading-color); margin: 0 0 10px 0; }
+header p { color: #666; margin: 0; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-weight: 500; margin-bottom: 8px; color: #333; }
+.form-group input, .form-group select {
+    width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px;
+    font-size: 1rem; font-family: 'Poppins', sans-serif; box-sizing: border-box;
+}
+button[type="submit"] {
+    width: 100%; padding: 15px; border: none; background-color: var(--primary-heading-color); color: white;
+    font-size: 1.1rem; font-weight: 600; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease;
+}
+button[type="submit"]:hover { background-color: #003a8c; }
+#success-message { text-align: center; color: var(--success-color); font-weight: 500; margin-top: 20px; opacity: 0; transition: opacity 0.5s ease; }
+#success-message:not(.hidden) { opacity: 1; }
+.view-events-link { display: block; text-align: center; margin-top: 25px; color: var(--primary-heading-color); text-decoration: none; font-weight: 500; }

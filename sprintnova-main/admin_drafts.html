@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin: Drafts | XIE Student Council</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/framework.css">
+    <link rel="stylesheet" href="css/admin-drafts.css">
+
+    <script src="js/framework.js" defer></script>
+    <script src="js/admin-drafts.js" defer></script>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container container">
+            <a href="#" class="logo">XIE Council Admin</a>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Medal Tally</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#" class="active">Upload Draft</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Open menu">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>Admin: Draft Management</h1>
+            <p>Manage, send, and schedule all official communications.</p>
+        </section>
+
+        <div class="container">
+            <section class="admin-section card">
+                <h2><span class="material-icons-outlined">history</span> Sent & Scheduled Drafts</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Recipient Group</th>
+                                <th>Sent/Scheduled Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="draft-history-body">
+                            <tr>
+                                <td>Mid-Term Feedback Session</td>
+                                <td>Class Representatives</td>
+                                <td>10/17/2025, 02:30 PM</td>
+                                <td><span class="status sent">Sent</span></td>
+                                <td class="actions">
+                                    <button class="btn-action view" title="View Details">👁️</button>
+                                    <button class="btn-action delete-draft" title="Delete Draft">🗑️</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <div class="admin-grid">
+                <section class="admin-section card">
+                    <form id="adminDraftForm" class="draft-form" novalidate>
+                        <h2 class="form-title"><span class="material-icons-outlined">edit_note</span> Compose New Draft</h2>
+                        <label for="draftTitle">Title</label><input type="text" id="draftTitle" required>
+                        <label for="draftBody">Message Body</label><textarea id="draftBody" rows="6" required></textarea>
+                        <label for="draftFile">Attach File</label><div class="file-input-wrapper"><button type="button" class="btn-file-dummy">Choose File</button><span class="file-name">No file chosen</span><input type="file" id="draftFile"></div>
+                        <label for="recipientGroup">Recipient Group</label><select id="recipientGroup" required><option value="" disabled selected>Select...</option><option value="Faculty">Faculty</option><option value="CRs">CRs</option><option value="Council">Council</option></select>
+                        <label>Schedule</label><div class="schedule-section"><input type="date" id="scheduleDate" title="Schedule Date"><input type="time" id="scheduleTime" title="Schedule Time"></div>
+                        <div class="form-actions"><button type="submit" name="send" class="btn btn-primary">Send Now</button><button type="submit" name="schedule" class="btn btn-secondary">Schedule</button></div>
+                        <div id="formStatusMessage"></div>
+                    </form>
+                </section>
+                <section class="admin-section card">
+                    <h2><span class="material-icons-outlined">group</span> Manage Mailing Lists</h2>
+                    <div class="tabs"><button class="tab-btn active" data-tab="faculty">Faculty</button><button class="tab-btn" data-tab="crs">CRs</button><button class="tab-btn" data-tab="council">Council</button></div>
+                    <div class="tab-content active" id="tab-faculty"><form class="add-email-form"><input type="email" placeholder="Add faculty email..." required><button type="submit" class="btn btn-add">+</button></form><ul class="email-list"><li><span>hod.cs@xie.edu.in</span><button class="btn-action delete-email" title="Delete Email">🗑️</button></li></ul></div>
+                    <div class="tab-content" id="tab-crs"><form class="add-email-form"><input type="email" placeholder="Add CR email..." required><button type="submit" class="btn btn-add">+</button></form><ul class="email-list"><li><span>cr.comps@xie.edu.in</span><button class="btn-action delete-email" title="Delete Email">🗑️</button></li></ul></div>
+                    <div class="tab-content" id="tab-council"><form class="add-email-form"><input type="email" placeholder="Add council member..." required><button type="submit" class="btn btn-add">+</button></form><ul class="email-list"><li><span>president.council@xie.edu.in</span><button class="btn-action delete-email" title="Delete Email">🗑️</button></li></ul></div>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="footer"><p>&copy; 2025 XIE Student Council Admin. All Rights Reserved.</p></footer>
+
+    <div id="preview-modal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header"><h2>Mail Preview</h2><button class="close-button">&times;</button></div>
+            <div class="modal-body">
+                <p><strong>Title:</strong> <span id="preview-title"></span></p>
+                <p><strong>Recipient Group:</strong> <span id="preview-group"></span></p>
+                <p><strong>Date:</strong> <span id="preview-date"></span></p>
+                <p><strong>Status:</strong> <span id="preview-status"></span></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

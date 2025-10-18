@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Admin Dashboard — XIE Council Platform</title> 
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/framework_index.css">
+    
+    </head>
+<body>
+
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+             <img src="assets/logo.png" alt="XIE Council Logo"> 
+        </a>
+        <nav>
+          <ul>
+            <li><a href="index.html">View Site</a></li> 
+            <li><a href="admin_dashboard.html" class="active">Dashboard</a></li> 
+            <li><a href="#" id="logoutBtn">Logout</a></li> </ul>
+        </nav>
+        <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+      </div>
+    </header>
+
+    <main>
+        
+        <section class="page-header" style="background-color: var(--Secondary); padding-top: 100px;"> <div class="container">
+                <h1>Admin Dashboard</h1>
+                <p>Manage fests, events, winners, gallery, and communications.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Management Sections</h2>
+                <div class="grid grid-3"> 
+                    <a href="admin_events.html" class="card text-center admin-link-card">
+                        <i class="fas fa-calendar-alt fa-2x"></i>
+                        <h3>Manage Events</h3>
+                        <p>Add, edit, or delete fests and events.</p>
+                    </a>
+                    
+                    <a href="admin_winners.html" class="card text-center admin-link-card">
+                        <i class="fas fa-trophy fa-2x"></i>
+                        <h3>Manage Winners</h3>
+                        <p>Assign medals and update results.</p>
+                    </a>
+
+                    <a href="admin_gallery.html" class="card text-center admin-link-card">
+                        <i class="fas fa-images fa-2x"></i>
+                        <h3>Manage Gallery</h3>
+                        <p>Upload or remove event photos.</p>
+                    </a>
+
+                    <a href="admin_drafts.html" class="card text-center admin-link-card">
+                        <i class="fas fa-paper-plane fa-2x"></i>
+                        <h3>Send Drafts/Emails</h3>
+                        <p>Compose and send official notices.</p>
+                    </a>
+                    
+                    <a href="admin_reports.html" class="card text-center admin-link-card">
+                        <i class="fas fa-chart-bar fa-2x"></i>
+                        <h3>View Reports</h3>
+                        <p>Check standings and download data.</p>
+                    </a>
+                    
+                    </div>
+            </div>
+        </section>
+
+    </main>
+    <footer class="footer">
+      <p>© 2025 Xavier Institute of Engineering — Student Council Platform</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/framework_index.js" defer></script>
+    
+    <script src="js/admin_dashboard.js" defer></script> 
+    
+</body>
+</html>

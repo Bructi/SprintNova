@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Draft & History | XIE Council</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/framework.css">
+    <link rel="stylesheet" href="css/draft.css">
+    <script src="js/framework.js" defer></script>
+    <script src="js/draft.js" defer></script>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container container">
+            <a href="#" class="logo">XIE Council</a>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Medal Tally</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#" class="active">Upload Draft</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Open menu">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header draft-header">
+            <h1>Your Drafts & Communications</h1>
+            <p>Compose a new notice or review your sent history below.</p>
+        </section>
+        <div class="container">
+            <section id="compose-section" class="card">
+                <h2>Compose New Draft</h2>
+                <form id="draftForm" class="draft-form" novalidate>
+                    <div class="form-group"><label for="draftTitle">Title of Notice</label><input type="text" id="draftTitle" placeholder="e.g., General Body Meeting" required></div>
+                    <div class="form-group"><label for="draftBody">Message Body</label><textarea id="draftBody" rows="8" placeholder="Type your message here..." required></textarea></div>
+                    <div class="form-group"><label for="draftFile">Attach File (Optional)</label><input type="file" id="draftFile" accept=".pdf,.docx,.jpg,.png"></div>
+                    <div class="form-group"><label for="recipientGroup">Recipient Group</label><select id="recipientGroup" required><option value="" disabled selected>Select a Group...</option><option value="Faculty Members">Faculty Members</option><option value="Class Representatives">Class Representatives</option><option value="Student Council">Student Council</option></select></div>
+                    <button type="submit" class="btn btn-primary">📨 Send Draft</button>
+                    <div id="statusMessage"></div>
+                </form>
+            </section>
+            <section id="history-section" class="card">
+                <h2>Sent Mail History</h2>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>Title</th><th>Recipient Group</th><th>Date Sent</th><th>Action</th></tr></thead>
+                        <tbody id="history-table-body">
+                            <tr><td>Upcoming Holiday Notice</td><td>Faculty Members</td><td>10/15/2025, 11:45 AM</td><td class="actions"><button class="btn-action view" title="View Details">👁️</button></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer class="footer"><p>&copy; 2025 XIE Student Council. All Rights Reserved.</p></footer>
+
+    <div id="preview-modal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header"><h2>Sent Mail Details</h2><button class="close-button">&times;</button></div>
+            <div class="modal-body">
+                <p><strong>Title:</strong> <span id="preview-title"></span></p>
+                <p><strong>Recipient Group:</strong> <span id="preview-group"></span></p>
+                <p><strong>Date Sent:</strong> <span id="preview-date"></span></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

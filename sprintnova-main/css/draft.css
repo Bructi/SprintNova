@@ -1,0 +1,41 @@
+/* Custom header styling */
+.draft-header { background: linear-gradient(135deg, var(--primary), #0074E4); }
+.draft-header h1, .draft-header p { color: white; }
+
+/* Card sections for compose and history */
+#compose-section, #history-section { margin-top: 2rem; }
+#compose-section h2, #history-section h2 { margin-top: 0; margin-bottom: 1.5rem; color: var(--primary); border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; }
+
+/* Form styling */
+.form-group { margin-bottom: 1.5rem; }
+.draft-form label { font-weight: 600; display: block; margin-bottom: 0.5rem; }
+.draft-form input, .draft-form textarea, .draft-form select { width: 100%; padding: 0.75rem; font-size: 1rem; font-family: var(--font-sans); border: 1px solid var(--border-color); border-radius: 8px; background-color: var(--background); }
+.draft-form input:focus, .draft-form textarea:focus, .draft-form select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 5px rgba(0, 74, 173, 0.4); }
+.btn-primary { background-color: var(--primary); color: white; font-size: 1.1rem; padding: 12px 20px; }
+.btn-primary:hover { background-color: #003380; }
+
+/* Status message for form submission */
+#statusMessage { margin-top: 1.5rem; font-weight: 500; padding: 1rem; border-radius: 8px; display: none; }
+#statusMessage.success { color: #155724; background-color: #d4edda; display: block; }
+#statusMessage.error { color: var(--danger); background-color: #f8d7da; display: block; }
+
+/* Table styling for draft history */
+.table-container { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--border-color); }
+thead th { background-color: var(--secondary); font-weight: 600; }
+tbody tr:hover { background-color: var(--background); }
+.actions { text-align: center; }
+.btn-action { background: none; border: 1px solid var(--border-color); border-radius: 50%; width: 32px; height: 32px; cursor: pointer; transition: background-color 0.2s; display: inline-flex; align-items: center; justify-content: center; }
+.btn-action:hover { background-color: var(--secondary); }
+
+/* --- PREVIEW MODAL STYLING --- */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); display: flex; align-items: center; justify-content: center; z-index: 2000; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
+.modal-overlay.active { opacity: 1; visibility: visible; }
+.modal { background-color: white; padding: 2rem; border-radius: 12px; width: 90%; max-width: 500px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); transform: scale(0.9); transition: transform 0.3s; }
+.modal-overlay.active .modal { transform: scale(1); }
+.modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; margin-bottom: 1rem; }
+.modal-header h2 { margin: 0; color: var(--primary); }
+.close-button { background: none; border: none; font-size: 2rem; cursor: pointer; color: #6c757d; line-height: 1; }
+.modal-body p { margin: 0.5rem 0; font-size: 1.1rem; }
+.modal-body p strong { color: var(--on-surface); }

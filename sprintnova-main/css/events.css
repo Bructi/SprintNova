@@ -1,0 +1,114 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-heading-color: #004AAD;
+    --primary-bg-color: #F8FAFF;
+    --card-bg-color: #FFFFFF;
+    --text-color: #333;
+    --border-color: #e2e8f0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --gold-color: #FFD700;
+    --silver-color: #C0C0C0;
+    --bronze-color: #CD7F32;
+    --navbar-height: 60px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--primary-bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding-top: var(--navbar-height);
+}
+
+/* --- Navbar --- */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center; padding: 0 40px;
+    height: var(--navbar-height); background-color: var(--card-bg-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); position: fixed; top: 0;
+    width: 100%; z-index: 1000; box-sizing: border-box;
+}
+.navbar-brand a { font-size: 1.4rem; font-weight: 700; color: var(--primary-heading-color); text-decoration: none; }
+.navbar-links a { color: var(--text-color); text-decoration: none; margin-left: 25px; font-weight: 500; transition: color 0.3s ease; }
+.navbar-links a:hover, .navbar-links a.active { color: var(--primary-heading-color); font-weight: 600; }
+
+/* --- Floating Action Buttons --- */
+.back-to-home-btn, .admin-panel-btn {
+    position: fixed; width: 45px; height: 45px; color: white; border-radius: 50%; display: flex;
+    align-items: center; justify-content: center; text-decoration: none; font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); z-index: 1001; transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.back-to-home-btn { top: 80px; left: 20px; background-color: var(--primary-heading-color); }
+.admin-panel-btn { bottom: 20px; right: 20px; background-color: #1e293b; }
+.back-to-home-btn:hover { transform: scale(1.1); background-color: #003a8c; }
+.admin-panel-btn:hover { transform: scale(1.1) rotate(15deg); background-color: #0f172a; }
+
+/* --- Page Header --- */
+.page-header { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, #edf2ff, #f8faff); }
+.page-header h1 { color: var(--primary-heading-color); font-size: 2.8rem; margin-bottom: 10px; }
+.page-header p { font-size: 1.1rem; color: #475569; }
+
+/* --- Filter Bar --- */
+.filter-bar {
+    display: flex; justify-content: center; align-items: center; gap: 20px; padding: 20px;
+    background-color: var(--card-bg-color); border-bottom: 1px solid var(--border-color);
+    position: sticky; top: var(--navbar-height); z-index: 999; flex-wrap: wrap;
+}
+.filter-bar select, .filter-bar input[type="search"] {
+    padding: 10px 15px; border-radius: 8px; border: 1px solid var(--border-color);
+    font-family: 'Poppins', sans-serif; font-size: 1rem; min-width: 200px;
+}
+.filter-bar .clear-btn {
+    padding: 10px 20px; border: none; background-color: #ef4444; color: white;
+    font-size: 1rem; font-weight: 500; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease;
+}
+.filter-bar .clear-btn:hover { background-color: #dc2626; }
+
+/* --- Event Grid & Cards --- */
+.event-list-container { padding: 40px; }
+#event-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 30px; }
+.event-card {
+    background-color: var(--card-bg-color); border-radius: 12px; box-shadow: 0 4px 15px var(--shadow-color);
+    padding: 25px; display: flex; flex-direction: column; border: 1px solid var(--border-color);
+    animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
+.event-card h3 { margin: 0; color: var(--primary-heading-color); font-size: 1.5rem; line-height: 1.2; }
+.medal-badge {
+    padding: 6px 14px; border-radius: 50px; /* Pill-shaped */ font-size: 0.9rem;
+    font-weight: 600; color: #333; flex-shrink: 0; display: flex; align-items: center; gap: 5px;
+}
+.medal-gold { background-color: var(--gold-color); }
+.medal-silver { background-color: var(--silver-color); }
+.medal-bronze { background-color: var(--bronze-color); }
+.card-body p { margin: 8px 0; font-size: 1rem; color: #334155; line-height: 1.5; }
+.card-body strong { font-weight: 600; color: #1e293b; }
+
+/* --- Card Actions (Kebab Menu & Dropdown) --- */
+.card-footer { margin-top: auto; padding-top: 15px; border-top: 1px solid var(--border-color); display: flex; justify-content: flex-end; position: relative; }
+.kebab-menu-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; padding: 5px 10px; color: #64748b; line-height: 1; }
+.kebab-menu-btn:hover { color: #1e293b; }
+.actions-dropdown { display: none; position: absolute; top: 100%; right: 0; background-color: var(--card-bg-color); border-radius: 8px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); z-index: 10; overflow: hidden; width: 120px; animation: fadeIn 0.2s ease; }
+.actions-dropdown.show { display: block; }
+.actions-dropdown button { display: block; width: 100%; background: none; border: none; padding: 10px 15px; text-align: left; font-family: 'Poppins', sans-serif; font-size: 0.9rem; cursor: pointer; }
+.actions-dropdown button:hover { background-color: #f1f5f9; }
+.actions-dropdown .edit-btn { color: var(--primary-heading-color); }
+.actions-dropdown .delete-btn { color: #ef4444; }
+
+/* --- Empty State --- */
+.empty-state-message { display: none; text-align: center; padding: 60px 20px; width: 100%; }
+.empty-state-message.show { display: block; animation: fadeIn 0.5s; }
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    body { padding-top: 95px; }
+    .navbar { flex-direction: column; height: auto; padding: 15px; }
+    .navbar-links { margin-top: 10px; } .navbar-links a { margin: 0 10px; }
+    .filter-bar { top: 95px; flex-direction: column; align-items: stretch; }
+    .filter-bar .filter-group, .filter-bar select, .filter-bar input, .filter-bar button { width: 100%; box-sizing: border-box; }
+    .filter-bar button { margin-top: 10px; }
+    #event-grid { grid-template-columns: 1fr; }
+    .page-header h1 { font-size: 2.2rem; }
+    .event-list-container { padding: 20px; }
+    .back-to-home-btn { top: 110px; }
+}

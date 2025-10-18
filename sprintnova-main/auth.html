@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | XIE Council Platform</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/framework_index.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+  <div class="auth-container">
+      
+      <div class="auth-card">
+        <h1>XIE Council Portal</h1>
+        <p class="subtext">Login to continue</p>
+  
+        <div class="role-selector">
+          <button class="btn active" id="userBtn">User</button>
+          <button class="btn" id="adminBtn">Admin</button>
+        </div>
+  
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="email" class="sr-only">Email</label>
+            <input type="email" id="email" placeholder="Email ID" required>
+          </div>
+          <div class="form-group">
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" id="password" placeholder="Password" required>
+          </div>
+          <button type="submit" class="btn" id="loginBtn">Login</button>
+        </form>
+  
+        <p id="loginStatus" class="status-message"></p>
+      </div>
+      
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  <script src="js/auth.js" defer></script>
+</body>
+</html>
