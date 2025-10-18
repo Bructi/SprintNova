@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XIE Student Council — Medal Tally</title>
+
+  <!-- Universal Frontend Framework CSS -->
+  <link rel="stylesheet" href="css/framework.css">
+  
+  <!-- Page-specific CSS -->
+  <link rel="stylesheet" href="css/tally.css">
+
+  <!-- Supabase Client SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Shared Framework JS -->
+  <script src="js/framework.js" defer></script>
+
+  <!-- Supabase Client JS -->
+  <script src="js/supabase_client.js" defer></script>
+
+  <!-- Page-specific JS -->
+  <script src="js/tally.js" defer></script>
+</head>
+<body>
+
+  <!-- Navbar (from framework) -->
+  <div id="navbar"></div>
+
+  <!-- Header Banner -->
+  <section class="header-banner text-center">
+    <h1>🏆 Medal Tally & Leaderboard</h1>
+    <p>Track the achievements of each class and department across all XIE fests.</p>
+  </section>
+
+  <!-- Toggle Section -->
+  <div class="container text-center toggle-section">
+    <button class="btn active" id="classBtn">Class Standings</button>
+    <button class="btn" id="deptBtn">Department Standings</button>
+  </div>
+
+  <!-- Medal Tally Table -->
+  <div class="container">
+    <div id="tallyContainer" class="tally-table-wrapper shadow-sm">
+      <table id="tallyTable">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Class / Department</th>
+            <th> Gold</th>
+            <th> Silver</th>
+            <th> Bronze</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="tallyBody">
+          <!-- Dynamic data will be inserted here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Refresh Button -->
+  <div class="container text-center">
+    <button class="btn" id="refreshBtn">🔄 Refresh Standings</button>
+  </div>
+
+  <!-- Footer (from framework) -->
+  <div id="footer"></div>
+
+</body>
+</html>

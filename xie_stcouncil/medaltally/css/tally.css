@@ -1,0 +1,53 @@
+/* Medal Tally Page Enhancements */
+
+.header-banner {
+  background: linear-gradient(135deg, #004AAD, #0074E4);
+  color: white;
+  padding: 3rem 1rem;
+}
+
+.tally-table-wrapper {
+  background: white;
+  border-radius: 10px;
+  overflow-x: auto;
+  margin-top: 1.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+thead {
+  background: #004AAD;
+  color: white;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+/* Highlight Top 3 */
+tr.highlight-gold { background-color: rgba(255, 215, 0, 0.15); }
+tr.highlight-silver { background-color: rgba(192, 192, 192, 0.15); }
+tr.highlight-bronze { background-color: rgba(205, 127, 50, 0.15); }
+
+.toggle-section {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  table { font-size: 0.9rem; }
+  th, td { padding: 0.5rem; }
+}

@@ -1,0 +1,126 @@
+/* Header Banner */
+.header-banner {
+  background: linear-gradient(135deg, #004AAD, #0074E4);
+  color: white;
+  padding: 3rem 1rem;
+}
+
+.header-banner h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.header-banner p {
+  font-size: 1.2rem;
+}
+
+/* Upload Section */
+.upload-section {
+  margin-top: 2rem;
+}
+
+#uploadForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+#uploadForm input[type="file"],
+#uploadForm input[type="text"] {
+  width: 70%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+#uploadForm .btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #004AAD;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#uploadForm .btn:hover {
+  background-color: #0074E4;
+}
+
+/* Preview Area */
+.preview-area {
+  margin-top: 1.5rem;
+}
+
+#previewImg {
+  width: 250px;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+#previewCaption {
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.gallery-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.gallery-card:hover {
+  transform: scale(1.03);
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  width: 100%;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #uploadForm input[type="file"],
+  #uploadForm input[type="text"] {
+    width: 90%;
+  }
+
+  #previewImg {
+    width: 200px;
+  }
+
+  .gallery-card img {
+    height: 180px;
+  }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📸 XIE Event Gallery</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/framework.css">
+  <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header id="navbar"></header>
+
+  <!-- Header Banner -->
+  <section class="header-banner text-center">
+    <h1>📸 Event Gallery</h1>
+    <p>Celebrate the best moments from Spandan, Transmission, and Sparx.</p>
+  </section>
+
+  <!-- Upload Section -->
+  <div class="container upload-section text-center">
+    <h2>Upload New Highlight</h2>
+    <form id="uploadForm">
+      <input type="file" id="imageInput" accept="image/*" required>
+      <input type="text" id="captionInput" placeholder="Enter caption..." required>
+      <button type="submit" class="btn">📤 Upload</button>
+    </form>
+
+    <div class="preview-area">
+      <h3>Preview:</h3>
+      <img id="previewImg" src="" alt="Preview" class="hidden">
+      <p id="previewCaption" class="hidden"></p>
+    </div>
+  </div>
+
+  <!-- Gallery Display Section -->
+  <div class="container">
+    <h2 class="text-center">Gallery Highlights</h2>
+    <div id="galleryGrid" class="gallery-grid"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="footer"></footer>
+
+  <!-- Scripts -->
+  <!-- Supabase CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js"></script>
+
+  <!-- Supabase client setup -->
+  <script src="js/supabaseClient.js"></script>
+
+  <!-- Framework scripts -->
+  <script src="js/framework.js"></script>
+
+  <!-- Gallery script -->
+  <script src="js/gallery.js"></script>
+
+</body>
+</html>
